@@ -1,0 +1,105 @@
+.login-auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 97vh;
+  background-color: #f4f6f8;
+}
+
+.login-auth-container {
+  display: flex;
+  width: 900px;
+  height: 500px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.login-auth-image {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.login-auth-image img {
+  width: 250px;
+  margin-bottom: 1rem;
+}
+
+.login-auth-image h2 {
+  font-size: 1.8rem;
+  margin-top: 60px;
+  color: #1E3A8A;;
+}
+
+.login-auth-form-wrapper {
+  flex: 1;
+  background: #1E3A8A;
+  color: white;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.login-auth-form-wrapper h3 {
+  margin-top: 72px;
+  font-size: 1.6rem;
+}
+
+.login-auth-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.form-input {
+  width: 94%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+}
+
+.form-steps .link {
+  color: #ffffff;
+  font-size: 0.85rem;
+  text-decoration: underline;
+}
+
+.form-steps .link:hover {
+  color: #e0e0e0;
+}
+
+.error-message {
+  color: #ffdddd;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.form-action {
+  margin-top: 1rem;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #ffffff;
+  color: #007bff;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.login-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+input.ng-invalid.ng-touched {
+  border: 2px solid red !important;
+}

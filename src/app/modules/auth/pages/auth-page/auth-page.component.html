@@ -1,0 +1,48 @@
+<div class="login-auth-page">
+  <div class="login-auth-container">
+
+    <div class="login-auth-image">
+      <h2>Portal de Asistencias</h2>
+      <img src="assets/images/img-login.jpg" alt="Agente de soporte" />
+      
+    </div>
+
+    <div class="login-auth-form-wrapper">
+      <h3>Iniciar Sesión</h3>
+
+      <form [formGroup]="FormDatosUser" class="login-auth-form" (ngSubmit)="sendLogin()">
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input
+            name="email"
+            type="email"
+            placeholder="Correo electrónico"
+            class="form-input"
+            formControlName="email"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input
+            name="password"
+            type="password"
+            placeholder="Contraseña"
+            class="form-input"
+            formControlName="password"
+          />
+        </div>
+
+        <div *ngIf="errorSession" class="error-message">
+          Ocurrió un error con tu email o contraseña.
+        </div>
+
+        <div class="form-action">
+          <button type="submit" class="login-btn" [disabled]="FormDatosUser.invalid">
+            Iniciar sesión
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
