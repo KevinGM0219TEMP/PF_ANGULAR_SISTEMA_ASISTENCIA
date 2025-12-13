@@ -1,19 +1,31 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { EstadoFilaDirective } from './directives/estado-fila.directive';
+import { FormatFechasPipe } from './pipes/format-fechas.pipe';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    SidebarComponent,
+    EstadoFilaDirective,
+    FormatFechasPipe
+  ],
   imports: [
     CommonModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports:[
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SidebarComponent,
+    FormsModule,
+    EstadoFilaDirective,
+    FormatFechasPipe
   ]
 })
 export class SharedModule { }

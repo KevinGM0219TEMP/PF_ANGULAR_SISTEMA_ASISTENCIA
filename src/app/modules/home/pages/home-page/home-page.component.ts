@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppRoutingModule } from "src/app/app-routing.module";
 
 @Component({
   selector: 'app-home-page',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {
+
+  isMenuOpen:boolean=true;
 
 }

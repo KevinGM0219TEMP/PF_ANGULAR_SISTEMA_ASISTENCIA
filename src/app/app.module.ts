@@ -3,11 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthPageComponent } from './modules/auth/pages/auth-page/auth-page.component';
-import { HomePageComponent } from './modules/home/pages/home-page/home-page.component';
-import { HttpClientModule } from '@angular/common/http';
-import { CookieService } from 'ngx-cookie-service';
 
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
+import { InjectSessionInterceptor } from './core/interceptors/inject-session.interceptor';
+import { ReportesPageComponent } from './modules/reportes/pages/reportes-page/reportes-page.component';
+import { DashboardComponent } from './modules/reportes/components/dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent
@@ -17,7 +18,11 @@ import { CookieService } from 'ngx-cookie-service';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [CookieService],
+  providers: [CookieService,{
+      provide:HTTP_INTERCEPTORS,
+      useClass: InjectSessionInterceptor,
+      multi:true
+    },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

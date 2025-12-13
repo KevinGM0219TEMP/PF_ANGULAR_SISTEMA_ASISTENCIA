@@ -1,0 +1,79 @@
+.justificacion-card {
+  width: 95%;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.1);
+}
+
+.title {
+  margin-bottom: 20px;
+  color: #1E3A8A;
+}
+
+.justificacion-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.form-input {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #1E3A8A;
+}
+
+textarea.form-input {
+  resize: none;
+}
+
+.hint {
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 4px;
+  text-align: right;
+}
+
+.form-action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-primary {
+  background: #1E3A8A;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.success-message {
+  background: #e6f4ea;
+  color: #1b5e20;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}

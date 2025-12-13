@@ -1,0 +1,14 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+.home-wrapper {
+  margin-left: 220px;
+  padding: 20px;
+  transition: margin-left 0.25s ease;
+  width: 100%;
+}
+
+.layout.collapsed .home-wrapper {
+  margin-left: 70px;
+}

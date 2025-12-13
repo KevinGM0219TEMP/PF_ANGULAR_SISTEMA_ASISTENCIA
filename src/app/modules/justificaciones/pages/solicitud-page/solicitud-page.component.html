@@ -1,0 +1,62 @@
+<div class="justificacion-card">
+
+  <h3 class="title">Solicitud de Justificación</h3>
+
+  <form
+    [formGroup]="formJustificacion"
+    (ngSubmit)="enviarSolicitud()"
+    class="justificacion-form"
+  >
+
+    <div class="form-group">
+      <label>Fecha a justificar</label>
+      <input
+        type="date"
+        class="form-input"
+        formControlName="fechaJustificacion"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Tipo de justificación</label>
+      <select
+        class="form-input"
+        formControlName="idTipoJustificacion"
+      >
+        <option value="" disabled selected>Seleccione una opción</option>
+        <option value="1">Tardanza</option>
+        <option value="2">Falta justificada</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Descripción</label>
+      <textarea
+        rows="4"
+        class="form-input"
+        maxlength="200"
+        placeholder="Ingrese una descripción (máx. 200 caracteres)"
+        formControlName="descripcion"
+      ></textarea>
+
+      <small class="hint">
+        {{ formJustificacion.get('descripcion')?.value?.length || 0 }}/200
+      </small>
+    </div>
+
+    <div *ngIf="enviado" class="success-message">
+      Solicitud enviada correctamente
+    </div>
+
+    <div class="form-action">
+      <button
+        type="submit"
+        class="btn-primary"
+        [disabled]="formJustificacion.invalid"
+      >
+        Enviar solicitud
+      </button>
+    </div>
+
+  </form>
+</div>

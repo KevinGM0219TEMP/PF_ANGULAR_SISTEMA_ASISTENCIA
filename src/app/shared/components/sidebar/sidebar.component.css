@@ -1,0 +1,172 @@
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background-color: #1E3A8A;
+  color: white;
+  padding: 16px 10px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.25s ease;
+}
+
+.sidebar.collapsed {
+  width: 70px;
+}
+
+.menu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 6px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.hamburger-icon {
+  font-size: 28px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  transition: all 0.2s ease;
+}
+
+.user-img {
+  width: 60px;
+  height: 60px;
+  transform: translateX(-14px);
+}
+
+.sidebar.collapsed .user-info {
+  display: none;
+}
+
+.name {
+  margin-top: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.email {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.divider {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 15px 0;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  flex-grow: 1;
+}
+
+.menu .menu-item {
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 4px;
+  transition: background 0.2s;
+}
+
+.menu .menu-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.menu .parent-label {
+  font-size: 0.95rem;
+  font-weight: bold;
+
+}
+
+
+.menu .submenu {
+  list-style: none;
+  padding-left: 15px;
+}
+
+.menu .submenu .submenu-item {
+  padding: 6px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.2s;
+}
+
+.menu .submenu .submenu-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  cursor: pointer;
+  color: white;
+  transition: background 0.2s ease;
+}
+
+.logout-btn:hover {
+  background-color: #ff4d4d;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.iconos {
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+}
+
+.menu-item,
+.parent-label,
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.label {
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar.collapsed .label {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+.sidebar.collapsed .menu-item,
+.sidebar.collapsed .parent-label,
+.sidebar.collapsed .logout-btn {
+  justify-content: center;
+}
+
+
+.menu-item.parent {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.parent-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.submenu {
+  margin-top: 6px;
+}
