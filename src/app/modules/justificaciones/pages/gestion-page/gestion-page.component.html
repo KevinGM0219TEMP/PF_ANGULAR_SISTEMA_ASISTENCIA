@@ -1,0 +1,81 @@
+<div class="gestion-card">
+
+  <h2>Gestión de Justificaciones</h2>
+
+
+  <div class="filters">
+    <div class="filter">
+      <label>Fecha inicio</label>
+      <input type="date" [(ngModel)]="fecInicio" (change)="buscar()">
+    </div>
+
+    <div class="filter">
+      <label>Fecha fin</label>
+      <input type="date" [(ngModel)]="fecFinal" (change)="buscar()">
+    </div>
+
+    <div class="filter">
+      <label>Estado</label>
+      <select [(ngModel)]="estado" (change)="buscar()">
+        <option value="P">Pendiente</option>
+        <option value="A">Aprobado</option>
+        <option value="R">Rechazado</option>
+      </select>
+    </div>
+
+    <div class="filter">
+      <label>Empleado</label>
+      <input
+        type="text"
+        placeholder="Buscar empleado"
+        [formControl]="empleadoControl">
+    </div>
+  </div>
+
+  <div class="cards">
+
+    <div class="just-card" *ngFor="let j of justificaciones" [appEstadoFila]="j.estado">
+
+        <div class="header">
+            <div class="empleado">{{ j.nombreUsuario }}</div>
+            <div class="fecha">
+                {{ j.fechaJustificada | formatFechas }}
+            </div>
+        </div>
+
+        <div class="body">
+        <div class="tipo">{{ j.nombreTipJust }}</div>
+        <div class="descripcion">{{ j.descripcion }}</div>
+        </div>
+
+        <div class="actions">
+            <button
+                class="btn approve"
+                (click)="procesar(j.idJust, 'A')"
+                [disabled]="j.estado !== 'P'"
+                >
+                Aprobar
+            </button>
+
+            <button
+                class="btn reject"
+                (click)="procesar(j.idJust, 'R')"
+                [disabled]="j.estado !== 'P'">
+                Rechazar
+            </button>
+        </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="pagination">
+    <button (click)="prevPage()" [disabled]="pageNumber === 0">Anterior</button>
+    <span>Página {{ pageNumber + 1 }} de {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="pageNumber + 1 === totalPages">
+      Siguiente
+    </button>
+  </div>
+
+</div>

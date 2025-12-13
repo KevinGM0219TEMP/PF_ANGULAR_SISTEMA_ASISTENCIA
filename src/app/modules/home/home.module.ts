@@ -3,10 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    HomePageComponent
+  ],
   imports: [
     CommonModule,
     HomeRoutingModule,

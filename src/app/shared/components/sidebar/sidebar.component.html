@@ -1,0 +1,58 @@
+<div class="sidebar" [class.collapsed]="!isMenuOpen">
+
+  <div class="menu-toggle" (click)="toggleMenu()">
+    <span class="hamburger-icon">&#9776;</span>
+  </div>
+
+  <div class="user-info">
+    <img src="../../../../assets/images/empleado.png" class="user-img" />
+    <div class="user-data">
+      <span class="name">{{ empleado }}</span>
+      <span class="email">{{ email }}</span>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <ul class="menu">
+
+    <ng-container *ngFor="let item of menu">
+      <ng-container *ngIf="canDisplay(item) && !item.children">
+        <li class="menu-item" (click)="navigate(item.route)">
+          <img class="iconos" [src]="item.imagen" />
+          <span class="label">{{ item.label }}</span>
+        </li>
+      </ng-container>
+
+      <ng-container *ngIf="canDisplay(item) && item.children">
+        <li class="menu-item parent">
+
+          <div class="parent-label" (click)="toggleSubmenu(item)">
+            <img class="iconos" src="../../../../assets/images/icon_justificiacion.png" />
+            <span class="label">{{ item.label }}</span>
+          </div>
+
+          <ul class="submenu" *ngIf="item.isExpanded && isMenuOpen">
+            <ng-container *ngFor="let child of item.children">
+              <ng-container *ngIf="canDisplay(child)">
+                <li class="submenu-item" (click)="navigate(child.route)">
+                  <span class="label">{{ child.label }}</span>
+                </li>
+              </ng-container>
+            </ng-container>
+          </ul>
+
+        </li>
+      </ng-container>
+
+    </ng-container>
+
+  </ul>
+
+  <!-- LOGOUT -->
+  <div class="logout-btn" (click)="logout()">
+    <img class="iconos" src="../../../../assets/images/icon_logout.png" />
+    <span class="label">Cerrar sesión</span>
+  </div>
+
+</div>

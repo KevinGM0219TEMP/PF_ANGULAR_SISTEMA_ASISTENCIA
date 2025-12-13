@@ -1,0 +1,31 @@
+<div class="asistencia-card">
+
+  <h3 class="title">Asistencia</h3>
+
+  <div class="info">
+    <div class="info-item">
+      <span class="label">Fecha entrada</span>
+      <span class="value">
+        {{ asistenciaDiaria && asistenciaDiaria.fecEntrada ? asistenciaDiaria.fecEntrada : '-' }}
+      </span>
+    </div>
+
+    <div class="info-item">
+      <span class="label">Fecha salida</span>
+      <span class="value">
+        {{ asistenciaDiaria && asistenciaDiaria.fecSalida ? asistenciaDiaria.fecSalida : '-' }}
+      </span>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-entrada" (click)="marcarEntrada()"[disabled]="tieneEntrada">
+      Marcar Entrada
+    </button>
+
+    <button class="btn btn-salida" (click)="marcarSalida()" [disabled]="!tieneEntrada || tieneSalida" >
+      Marcar Salida
+    </button>
+  </div>
+
+</div>
