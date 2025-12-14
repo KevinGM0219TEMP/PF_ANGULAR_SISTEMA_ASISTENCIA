@@ -1,0 +1,12 @@
+<div class="page">
+
+  <app-filtros-reportes
+    (filtrosChange)="onFiltrosChange($event)">
+  </app-filtros-reportes>
+
+  <app-chart-puntualidad
+    *ngIf="filteredData$ | async as data"
+    [data]="data">
+  </app-chart-puntualidad>
+
+</div>

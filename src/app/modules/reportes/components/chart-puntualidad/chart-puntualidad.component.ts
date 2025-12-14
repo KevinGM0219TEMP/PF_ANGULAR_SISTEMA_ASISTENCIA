@@ -1,25 +1,35 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { ReporteRequestDTO } from 'src/app/core/dto/dto-requests/ReporteRequestDTO';
 import { ReporteAsistenciaPuntualidadResponseDTO } from 'src/app/core/dto/dto-responses/ReporteAsistenciaPuntualidadReponseDTO';
 import { ReportesService } from '../../services/reportes.service';
+import { ChartData, ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-chart-puntualidad',
   templateUrl: './chart-puntualidad.component.html',
   styleUrls: ['./chart-puntualidad.component.css']
 })
-export class ChartPuntualidadComponent {
-  @Input() request!: ReporteRequestDTO;
+export class ChartPuntualidadComponent implements OnChanges {
 
-  data: ReporteAsistenciaPuntualidadResponseDTO[] = [];
+  @Input() data: ReporteAsistenciaPuntualidadResponseDTO[] = [];
 
-  constructor(private reportesService: ReportesService) {}
+  chartData!: ChartData<'bar'>;
 
-  ngOnChanges() {
-    if (this.request) {
-      this.reportesService
-        .getReportePuntualidad(this.request)
-        .subscribe(res => this.data = res);
-    }
+  ngOnChanges(): void {
+    this.chartData = {
+      labels: this.data.map(d => d.empleado),
+      datasets: [
+        {
+          label: 'Puntual',
+          data: this.data.map(d => d.totalPuntual),
+          backgroundColor: '#16a34a'
+        },
+        {
+          label: 'Tardanzas',
+          data: this.data.map(d => d.totalTardanzas),
+          backgroundColor: '#dc2626'
+        }
+      ]
+    };
   }
 }

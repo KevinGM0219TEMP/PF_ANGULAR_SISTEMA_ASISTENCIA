@@ -2,19 +2,26 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ReportesRoutingModule } from './reportes-routing.module';
-import { ReportesPageComponent } from './pages/reportes-page/reportes-page.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ChartAsistenciasMensualesComponent } from './components/chart-asistencias-mensuales/chart-asistencias-mensuales.component';
-import { ChartPuntualidadComponent } from './components/chart-puntualidad/chart-puntualidad.component';
-import { ChartAsistenciasVsFaltasComponent } from './components/chart-asistencias-vs-faltas/chart-asistencias-vs-faltas.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { NgChartsModule } from 'ng2-charts';
+import { AsistenciasMensualesPageComponent } from './pages/asistencias-mensuales-page/asistencias-mensuales-page.component';
+import { AsistenciasVsFaltasPageComponent } from './pages/asistencias-vs-faltas-page/asistencias-vs-faltas-page.component';
+import { PuntualidadPageComponent } from './pages/puntualidad-page/puntualidad-page.component';
 import { FiltrosReportesComponent } from './components/filtros-reportes/filtros-reportes.component';
+import { ChartAsistenciasMensualesComponent } from './components/chart-asistencias-mensuales/chart-asistencias-mensuales.component';
+import { ChartAsistenciasVsFaltasComponent } from './components/chart-asistencias-vs-faltas/chart-asistencias-vs-faltas.component';
+import { ChartPuntualidadComponent } from './components/chart-puntualidad/chart-puntualidad.component';
 
 
 @NgModule({
-  declarations: [ReportesPageComponent,DashboardComponent, ChartAsistenciasMensualesComponent, ChartPuntualidadComponent, ChartAsistenciasVsFaltasComponent, FiltrosReportesComponent],
+  declarations: [ AsistenciasMensualesPageComponent, 
+    AsistenciasVsFaltasPageComponent, PuntualidadPageComponent,
+    FiltrosReportesComponent,ChartAsistenciasMensualesComponent,ChartAsistenciasVsFaltasComponent,ChartPuntualidadComponent],
   imports: [
     CommonModule,
-    ReportesRoutingModule
+    ReportesRoutingModule,
+    SharedModule,
+    NgChartsModule
   ]
 })
 export class ReportesModule { }
