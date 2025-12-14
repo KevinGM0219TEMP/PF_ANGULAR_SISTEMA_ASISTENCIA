@@ -45,7 +45,8 @@ export class SidebarComponent implements OnInit {
       label: 'Justificaciones',
       roles: ['ROLE_EMPLEADO', 'ROLE_ADMIN'],
       isExpanded: false,
-      route: '/justificaciones/solicitud',
+      route: '/justificaciones',
+      imagen: '../../../../assets/images/icon_justificiacion.png',
       children: [
         { label: 'Solicitar', route: '/justificaciones/solicitud', roles: ['ROLE_EMPLEADO'] },
         { label: 'Historial', route: '/justificaciones/historial', roles: ['ROLE_EMPLEADO'] },
@@ -56,7 +57,13 @@ export class SidebarComponent implements OnInit {
       label: 'Reportes',
       route: '/reportes',
       roles: ['ROLE_ADMIN'],
-      imagen: '../../../../assets/images/icon_reporte.png'
+      imagen: '../../../../assets/images/icon_reporte.png',
+      isExpanded: false,
+      children: [
+        { label: 'Asistencia Mensual', route: '/reportes/asistencia-mensual', roles: ['ROLE_EMPLEADO'] },
+        { label: 'Asistencia vs Faltas', route: '/reportes/asistencia-faltas', roles: ['ROLE_EMPLEADO'] },
+        { label: 'Puntualidad', route: '/reportes/puntualidad', roles: ['ROLE_ADMIN'] }
+      ]
     }
   ];
   toggleMenu() {

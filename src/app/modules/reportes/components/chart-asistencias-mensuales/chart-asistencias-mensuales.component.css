@@ -1,0 +1,12 @@
+.chart-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.08);
+  overflow: hidden;
+}
+
+canvas {
+  max-width: 100% !important;
+  height: 300px !important;
+}

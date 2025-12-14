@@ -1,1 +1,10 @@
-<p>chart-asistencias-mensuales works!</p>
+<div class="chart-card">
+  <h3>Asistencias mensuales</h3>
+
+  <canvas
+    baseChart
+    [data]="chartData"
+    [options]="chartOptions"
+    [type]="'line'">
+  </canvas>
+</div>

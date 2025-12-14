@@ -1,1 +1,39 @@
-<p>filtros-reportes works!</p>
+<div class="filtros-card">
+
+  <div class="fila">
+    <div class="filter">
+      <label>Fecha inicio</label>
+      <input
+        type="date"
+        [(ngModel)]="fechaInicio"
+        (change)="emitir()" />
+    </div>
+
+    <div class="filter">
+      <label>Fecha fin</label>
+      <input
+        type="date"
+        [(ngModel)]="fechaFin"
+        (change)="emitir()" />
+    </div>
+
+    <div class="filter">
+      <label>Modo</label>
+      <select [(ngModel)]="modo" (change)="emitir()">
+        <option value="GLOBAL">Global</option>
+        <option value="EMPLEADO">Por empleado</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="fila" *ngIf=" modo === 'EMPLEADO'">
+    <div class="filter full">
+      <label>Empleado</label>
+      <input
+        type="text"
+        [formControl]="empleadoControl"
+        placeholder="Escriba nombre o apellido" />
+    </div>
+  </div>
+
+</div>

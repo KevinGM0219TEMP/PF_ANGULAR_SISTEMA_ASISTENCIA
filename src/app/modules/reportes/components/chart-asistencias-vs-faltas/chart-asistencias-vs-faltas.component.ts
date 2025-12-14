@@ -1,27 +1,38 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { ReporteRequestDTO } from 'src/app/core/dto/dto-requests/ReporteRequestDTO';
 import { ReporteAsistenciaFaltasResponseDto } from 'src/app/core/dto/dto-responses/ReporteAsistenciasFaltasResponseDTO';
 import { ReportesService } from '../../services/reportes.service';
+import { ChartData } from 'chart.js';
 
 @Component({
   selector: 'app-chart-asistencias-vs-faltas',
   templateUrl: './chart-asistencias-vs-faltas.component.html',
   styleUrls: ['./chart-asistencias-vs-faltas.component.css']
 })
-export class ChartAsistenciasVsFaltasComponent {
+export class ChartAsistenciasVsFaltasComponent implements OnChanges{
 
-  @Input() request!: ReporteRequestDTO;
+  @Input() data: ReporteAsistenciaFaltasResponseDto[] = [];
   
-    data: ReporteAsistenciaFaltasResponseDto[] = [];
+    chartData!: ChartData<'bar'>;
   
-    constructor(private reportesService: ReportesService) {}
-  
-    ngOnChanges() {
-      if (this.request) {
-        this.reportesService
-          .getReporteAsistenciaFaltas(this.request)
-          .subscribe(res => this.data = res);
-      }
+    ngOnChanges(): void {
+      if (!this.data?.length) return;
+
+      this.chartData = {
+        labels: this.data.map(d => d.empleado),
+        datasets: [
+          {
+            label: 'Asistencias',
+            data: this.data.map(d => d.totalAsistencias),
+            backgroundColor: '#2563eb'
+          },
+          {
+            label: 'Faltas',
+            data: this.data.map(d => d.totalFaltas),
+            backgroundColor: '#dc2626'
+          }
+        ]
+      };
     }
 
 }

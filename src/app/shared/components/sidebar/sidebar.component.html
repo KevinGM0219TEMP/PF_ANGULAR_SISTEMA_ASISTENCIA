@@ -28,7 +28,8 @@
         <li class="menu-item parent">
 
           <div class="parent-label" (click)="toggleSubmenu(item)">
-            <img class="iconos" src="../../../../assets/images/icon_justificiacion.png" />
+            <img class="iconos" [src]="item.imagen" />
+            
             <span class="label">{{ item.label }}</span>
           </div>
 
@@ -49,7 +50,6 @@
 
   </ul>
 
-  <!-- LOGOUT -->
   <div class="logout-btn" (click)="logout()">
     <img class="iconos" src="../../../../assets/images/icon_logout.png" />
     <span class="label">Cerrar sesión</span>

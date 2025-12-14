@@ -7,8 +7,6 @@ import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { InjectSessionInterceptor } from './core/interceptors/inject-session.interceptor';
-import { ReportesPageComponent } from './modules/reportes/pages/reportes-page/reportes-page.component';
-import { DashboardComponent } from './modules/reportes/components/dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent
