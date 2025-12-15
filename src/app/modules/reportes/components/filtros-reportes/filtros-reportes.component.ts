@@ -20,7 +20,6 @@ export class FiltrosReportesComponent implements OnInit {
   empleadoControl = new FormControl('');
 
   ngOnInit(): void {
-    
     this.obtenerFecha();
     this.empleadoControl.valueChanges.pipe(
         debounceTime(300)
@@ -44,7 +43,7 @@ export class FiltrosReportesComponent implements OnInit {
       0
     ).toISOString().split('T')[0];
   }
-  
+
   emitir(): void {
     this.filtrosChange.emit({
       fecha_inicio: this.fechaInicio,
