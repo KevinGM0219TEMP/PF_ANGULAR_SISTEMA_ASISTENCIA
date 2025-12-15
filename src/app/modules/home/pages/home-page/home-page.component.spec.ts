@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomePageComponent } from './home-page.component';
+import { SidebarComponent } from 'src/app/shared/components/sidebar/sidebar.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('HomePageComponent', () => {
   let component: HomePageComponent;
@@ -8,7 +10,8 @@ describe('HomePageComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [HomePageComponent]
+      declarations: [HomePageComponent,SidebarComponent],
+      imports: [RouterTestingModule]
     });
     fixture = TestBed.createComponent(HomePageComponent);
     component = fixture.componentInstance;
